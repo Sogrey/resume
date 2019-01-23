@@ -1,0 +1,129 @@
+{
+  "basics": {
+      "name": "John Doe", 
+      "label": "Programmer", 
+      "picture": "", 
+      "wechatPicture":"",
+      "profiles": [
+          {
+              "label": "学历", 
+              "value": "本科"
+          }, 
+          {
+              "label": "毕业院校", 
+              "value": "北京邮电大学"
+          }, 
+          {
+              "label": "毕业年份", 
+              "value": "2017"
+          }
+      ], 
+      "contacts": [
+          {
+              "label": "Email", 
+              "value": "john@gmail.com"
+          }, 
+          {
+              "label": "phone", 
+              "value": "(912) 555-4321"
+          }, 
+          {
+              "label": "github", 
+              "value": "https://github.com/sogrey"
+          }, 
+          {
+              "label": "website", 
+              "value": "https://sogrey.github.io"
+          }
+      ], 
+      "skills": [
+          {
+              "label": "Android", 
+              "value": 90
+          }, 
+          {
+              "label": "Python", 
+              "value": 80
+          }, 
+          {
+              "label": "Html/css", 
+              "value": 75
+          }, 
+          {
+              "label": "Vue", 
+              "value": 60
+          }
+      ], 
+      "stacks": [
+          {
+              "label": "移动开发", 
+              "value": "Android、Flutter"
+          }, 
+          {
+              "label": "前端", 
+              "value": "jQuery、Angular.js、React.js"
+          }, 
+          {
+              "label": "后端", 
+              "value": "Flask、Django、Twisted、Node.js、MongoDB、MySQL、Redis"
+          }, 
+          {
+              "label": "其它", 
+              "value": "我全都是瞎写的。"
+          }
+      ], 
+      "summary": "A summary of John Doe..."
+  }, 
+  "work": [
+      {
+          "company": "Company", 
+          "position": "President", 
+          "website": "http://company.com", 
+          "startDate": "2013-01-01", 
+          "endDate": "2014-01-01", 
+          "summary": "Description...", 
+          "highlights": [
+              "Started the company"
+          ]
+      }
+  ], 
+  "education": [
+      {
+          "institution": "University", 
+          "area": "Software Development", 
+          "studyType": "Bachelor", 
+          "startDate": "2011-01-01", 
+          "endDate": "2013-01-01", 
+          "gpa": "4.0", 
+          "courses": [
+              "DB1101 - Basic SQL"
+          ]
+      }
+  ], 
+  "awards": [
+      {
+          "title": "Award", 
+          "date": "2014-11-01", 
+          "awarder": "Company", 
+          "summary": "There is no spoon."
+      }
+  ], 
+  "publications": [
+      {
+          "name": "Publication", 
+          "publisher": "Company", 
+          "releaseDate": "2014-10-01", 
+          "website": "http://publication.com", 
+          "summary": "Description..."
+      }
+  ], 
+  "interests": [
+      {
+          "name": "Wildlife", 
+          "keywords": [
+              "Ferrets", 
+              "Unicorns"
+          ]
+      }
+  ]
+}
