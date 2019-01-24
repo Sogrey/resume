@@ -14,13 +14,14 @@
     <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.0/remodal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.0/remodal-default-theme.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.0/remodal.min.js"></script>
-    <!-- <script src="static/js/script.js"></script> -->
+
 </head>
 
 <body>
+    <!-- <button id="btn2">按钮</button> -->
+    <!--startprint-->
     <div class="container" id="cv">
+        <!-- <a href="javascript:;" v-on:click="downloadJson">下载</a> -->
         <div class="side">
             <div class="me">
                 <div class="portrait">
@@ -30,7 +31,7 @@
                 <div class="remodal remodal-img" data-remodal-id="portrait-modal">
                     <h3>请输入图片URL地址：</h3>
                     <br />
-                    <input type="text" id="avatar-url">
+                    <input type="text" id="avatar-url" v-model:value="data.basics.picture">
                     <button data-remodal-action="confirm" class="remodal-confirm">确定</button>
                 </div>
                 <h1 id="username">{{data.basics.name}}</h1>
@@ -79,14 +80,14 @@
                 <h2 class="info-header"><i class="iconfont icon-weixin"></i> <span class="info-title">个人微信</span></h2>
                 <hr>
                 <div class="weixin">
-                    <img v-bind:src="data.basics.wechatPicture" onerror='this.src="https://github.com/Sogrey/Sogrey.github.io/blob/master/img/MyWeichat.jpg?raw=true"'
+                    <img v-bind:src="data.basics.wechatPicture" onerror='this.src="https://Sogrey.github.io/img/MyWeichat.jpg"'
                         alt="">
                 </div>
             </div>
             <div class="remodal remodal-img" data-remodal-id="weixin-modal">
                 <h3>请输入图片URL地址：</h3>
                 <br />
-                <input type="text" id="weixin-url">
+                <input type="text" id="weixin-url" v-model:value="data.basics.wechatPicture">
                 <button data-remodal-action="confirm" class="remodal-confirm">确定</button>
             </div>
         </div>
@@ -95,6 +96,12 @@
                 <h2 class="info-header"><i class="iconfont icon-education"></i> <span class="info-title">教育经历</span></h2>
                 <hr>
                 <ul class="experience-list">
+
+                    <li v-for="education in data.educations">
+                        <h3>{{education.institution}} - {{education.area}}<small>({{education.studyType}}
+                                {{education.startDate}}至{{education.endDate}})</small></h3>
+                        <p>{{education.summary}} </p>
+                    </li>
                     <li>
                         <h3>北京邮电大学 - 网络工程专业（本科）2012-2017</h3>
                         <p>
@@ -108,6 +115,10 @@
                 <h2 class="info-header"><i class="iconfont icon-work"></i> <span class="info-title">工作经历</span></h2>
                 <hr>
                 <ul class="experience-list">
+                    <li v-for="work in data.works">
+                        <h3>{{work.company}} - <small>({{work.position}} {{work.startDate}}至{{work.endDate}})</small></h3>
+                        <p>{{work.summary}} </p>
+                    </li>
                     <li>
                         <h3>北京创客空间－实习生（实习）</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
@@ -127,6 +138,13 @@
                 <h2 class="info-header"><i class="iconfont icon-project"></i> <span class="info-title">个人项目</span></h2>
                 <hr>
                 <ul class="experience-list">
+                    <li v-for="publication in data.publications">
+                        <h3>{{publication.name}} - <small>{{publication.publisher}} {{publication.releaseDate}}</small></h3>
+                        <p>
+                            {{publication.summary}}
+                            <br />
+                        </p>
+                    </li>
                     <li>
                         <h3>基于 Qt 5 的文本编辑器</h3>
                         <p>
@@ -154,54 +172,31 @@
                             ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </p>
                     </li>
-                    <li>
-                        <h3>如果项目太少，可以在实验楼上找项目做啊:D</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                    </li>
                 </ul>
             </div>
             <div class="trophy info-unit">
                 <h2 class="info-header"><i class="iconfont icon-trophy"></i> <span class="info-title">奖项与证书</span></h2>
                 <hr>
                 <ul class="experience-list">
-                    <li>
-                        <h3>小学生作文二等奖</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam。
-                        </p>
-                    </li>
-                    <li>
-                        <h3>曾获统一冰红茶“再来一瓶”奖</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam。
-                        </p>
-                    </li>
-                    <li>
-                        <h3>这一行也是为了凑版面</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam。
-                        </p>
+                    <li v-for="award in data.awards">
+                        <h3>{{award.title}} - <small>({{award.awarder}} {{award.date}})</small></h3>
+                        <p>{{award.summary}}</p>
                     </li>
             </div>
             <div class="aboutme info-unit right-paragraph">
                 <h2 class="info-header"><i class="iconfont icon-flower"></i> <span class="info-title">自我评价</span></h2>
                 <hr>
-                <p>
-                    {{data.basics.summary}}
+                <p v-for="summary in data.basics.summaries">
+                    {{summary}}
                 </p>
             </div>
         </div>
     </div>
+    <!--endprint-->
 
-
-    <!-- <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.0/remodal.min.js"></script>
+    <!-- <script src="static/js/script.js"></script> -->
     <!-- 开发环境版本，包含了有帮助的命令行警告 -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
     <!-- 生产环境版本，优化了尺寸和速度 -->
@@ -209,53 +204,131 @@
     <!-- <script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script> -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="text/javascript">
-        var app = new Vue({
-            el: "#cv",
-            data: {
-                data: {}
-            },
-            beforeCreate: function () {
-                console.log("beforeCreate")
-            },
-            created: function () {
-                console.log("created")
-                // this.$http.get("data.json")
-                //     .then(function (data) {
-                //         var json = data.body;
-                //         this.data = eval(json);
-                //     }, function (response) {
-                //         console.info(response);
-                //     })
+        /**  
+         * 获取指定的URL参数值  
+         * URL:http://www.quwan.com/index?name=tyler  
+         * 参数：paramName URL参数  
+         * 调用方法:getParam("name")  
+         * 返回值:tyler  
+         */
+        function getParam(paramName) {
+            paramValue = "", isFound = !1;
+            if (this.location.search.indexOf("?") == 0 && this.location.search.indexOf("=") > 1) {
+                arrSource = unescape(this.location.search).substring(1, this.location.search.length).split("&"), i = 0;
+                while (i < arrSource.length && !isFound) arrSource[i].indexOf("=") > 0 && arrSource[i].split("=")[0].toLowerCase() ==
+                    paramName.toLowerCase() && (paramValue = arrSource[i].split("=")[1], isFound = !0), i++
+            }
+            return paramValue == "" && (paramValue = null), paramValue
+        }
+        //动态加载js文件到head标签并执行回调
+        /**
+         * 动态加载JS
+         * @param {string} eleName 加载位置，一般选 head 或 body
+         * @param {string} url 脚本地址
+         * @param {function} callback  回调函数
+         */
+        function dynamicLoadJs(eleName, url, callback) {
+            var head = document.getElementsByTagName(eleName)[0];
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = url;
+            if (typeof (callback) == 'function') {
+                script.onload = script.onreadystatechange = function () {
+                    if (!this.readyState || this.readyState === "loaded" || this.readyState === "complete") {
+                        callback();
+                        script.onload = script.onreadystatechange = null;
+                    }
+                };
+            }
+            head.appendChild(script);
+        }
 
-                axios.get('resume.json')
-                    .then(resp => {
-                        app.data = eval(resp.data);
-                        console.log(app.data)
-                        document.title = app.data.basics.name;
-                    }).catch(err => {
-                        console.log('请求失败：' + err);
-                    });
-            },
-            beforeMount: function () {
-                console.log("beforeMount")
-                // console.log(this.$el)
-            },
-            mounted: function () {
-                console.log("mounted")
-                // console.log(this.$el)
-            },
-            beforeUpdate: function () {
-                console.log("beforeUpdate")
-            },
-            updated: function () {
-                console.log("updated")
-            },
-            beforeDestroy: function () {
-                console.log("beforeDestroy")
-            },
-            destroyed: function () {
-                console.log("destroyed")
-            },
+        /**
+         * 下载json
+         */
+        function downloadFile(fileName, content) {
+            var aLink = document.createElement('a');
+            var blob = new Blob([content]);
+            var evt = document.createEvent("HTMLEvents");
+            evt.initEvent("click", false, false); //initEvent 不加后两个参数在FF下会报错, 感谢 Barret Lee 的反馈
+            aLink.download = fileName;
+            aLink.href = URL.createObjectURL(blob);
+            aLink.dispatchEvent(evt);
+            aLink.textContent = "下载";
+            aLink.title = "下载 resume.json";
+            aLink.click();
+        }
+
+        /**
+         * 打印
+         */
+        function doPrint() {
+            bdhtml = window.document.body.innerHTML;
+            sprnstr = "<!--startprint-->";
+            eprnstr = "<!--endprint-->";
+            prnhtml = bdhtml.substr(bdhtml.indexOf(sprnstr) + 17);
+            prnhtml = prnhtml.substring(0, prnhtml.indexOf(eprnstr));
+            window.document.body.innerHTML = prnhtml;
+            window.print();
+        }
+        // $('#btn2').click(function () {
+        //     $('*[contenteditable]').each(function (index, element) {
+        //         //   console.log( $(this).text()) 
+        //         //   console.log( $(this).next("input"))  
+        //         var text = $(this).text()
+        //         $(this).next("input").val(text)
+        //     });
+        // })
+
+        jQuery(document).ready(function ($) {
+            new Vue({
+                el: "#cv",
+                data: {
+                    data: {
+                        "basics": {
+                            "name": "Your name",
+                            "label": "Occupation",
+                            "picture": ""
+                        }
+                    }
+                },
+                beforeCreate: function () {
+                    if (getParam("editable")) {
+                        dynamicLoadJs("body", "static/js/script.js", function () {
+                            doEdit();
+                        })
+                    }
+                },
+                created: function () {
+                    // this.$http.get("data.json")
+                    //     .then(function (data) {
+                    //         var json = data.body;
+                    //         this.data = eval(json);
+                    //     }, function (response) {
+                    //         console.info(response);
+                    //     })
+
+                    axios.get('resume.json')
+                        .then(resp => {
+                            this.data = eval(resp.data);
+                            console.log(this.data)
+                            document.title = this.data.basics.name;
+                        }).catch(err => {
+                            console.log('请求失败：' + err);
+                        });
+                },
+                methods: {
+                    //下载json
+                    downloadJson: function () {
+                        console.log(JSON.stringify(this.data))
+                        downloadFile("resume.json", JSON.stringify(this.data))
+                    },
+                    //打印
+                    doPrint: function () {
+                        doPrint()
+                    }
+                }
+            });
         });
     </script>
 </body>
