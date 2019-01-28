@@ -45,10 +45,22 @@
                     <li v-for="profile in data.basics.profiles">
                         <label class="left-label">{{profile.label}}</label><span class="label-value">{{profile.value}}</span>
                     </li>
+                    <!-- 组件 -->
+                    <!-- <blog-post v-for="post in posts" v-bind:key="post.id" v-bind:post="post"></blog-post> -->
+                    <!-- <li is="blog-post" v-for="post in posts" v-bind:key="post.id" v-bind:post="post"></li> -->
+                    <!-- Vue.component('blog-post', {
+                        props: ['post'],
+                        template: '
+                          <div class="blog-post">
+                            <h3>{{ post.title }}</h3>
+                            <div v-html="post.content"></div>
+                          </div>
+                       '
+                      }) -->
                 </ul>
             </div>
             <div class="contact info-unit">
-                <h2 class="info-header"><i class="iconfont icon-call"></i> <span class="info-title">联系方式</span></h2>
+                <h2 class="info-header"><i class="iconfont icon-call"></i><span class="info-title">联系方式</span></h2>
                 <hr>
                 <ul class="info-list">
                     <li v-for="contact in data.basics.contacts">

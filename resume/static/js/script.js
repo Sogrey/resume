@@ -97,3 +97,25 @@ function doEdit() {
     //显示模板下载按钮，json下载按钮
 
 }
+
+Vue.component('input-h1', {
+    props: ['value'], //使用v-model的表单组件时，父组件通过value来进行传值 
+    template: '<input type="text" :value="value" @input="updateValue">',
+    methods: {
+        updateValue: function (event) {
+            this.$emit('input', event.target.value);
+        }
+    }
+})
+Vue.component('textarea-h1', {
+    props: {
+        value: String,
+        postTitle: String
+    },
+    template: '<textarea @input="updateValue">{{value}} -- {{postTitle}}</textarea>',
+    methods: {
+        updateValue: function (event) {
+            this.$emit('input', event.target.value);
+        }
+    }
+})
