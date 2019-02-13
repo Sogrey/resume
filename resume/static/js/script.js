@@ -93,9 +93,7 @@ function doEdit() {
     });
     // $("*").removeAttr('contenteditable');
 
-
     //显示模板下载按钮，json下载按钮
-
 }
 
 Vue.component('input-h1', {
